@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+from src.parser import Parser
 
 # Load the JSON data (Replace with actual file loading if needed)
 json_data = {
@@ -175,5 +176,15 @@ with st.form("user_prefs_form"):
 devTxt = st.text(json.dumps(pref_tree, indent=2))
 
 txt = st.text_area("Paste legal document", height=1000)
+
+if st.button("Parse"):
+
+  if txt:
+    parser = Parser()
+    parsed_data = parser.parse_text(txt)
+
+    st.json(parsed_data)
+  else:
+    st.error("Please paste a legal document to parse.")
 
 st.divider()
