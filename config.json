@@ -1,0 +1,128 @@
+{
+    "privacyAgreement": {
+      "id": "privacy_agreement",
+      "category": "Privacy Agreement",
+      "componentType": "section",
+      "children": [
+        {
+          "id": "personal_information_collection",
+          "category": "Personal Information Collection",
+          "componentType": "section",
+          "children": [
+            {
+              "id": "registration",
+              "category": "Registration",
+              "hint": "Information you usually provide when you register for an account.",
+              "componentType": "checkboxGroup",
+              "children": [
+                { "id": "email", "category": "Email", "componentType": "checkbox" },
+                { "id": "username", "category": "Username", "componentType": "checkbox" },
+                { "id": "password", "category": "Password", "componentType": "checkbox" }
+              ]
+            },
+            {
+              "id": "personal_details",
+              "category": "Personal Details",
+              "hint": "Additional information you provide when you fill out your profile.",
+              "componentType": "checkboxGroup",
+              "children": [
+                { "id": "dob", "category": "Date of Birth", "componentType": "checkbox" },
+                { "id": "phone", "category": "Phone Number", "componentType": "checkbox" },
+                { "id": "address", "category": "Address", "componentType": "checkbox" }
+              ]
+            },
+            {
+              "id": "payment_subscription",
+              "category": "Payment and Subscription",
+                "hint": "Information you provide when you make a payment or subscribe to a service.",
+              "componentType": "sliderGroup",
+              "children": [
+                {
+                  "id": "credit_card",
+                  "category": "Credit Card",
+                  "componentType": "slider",
+                  "options": [
+                    "Will not provide",
+                    "Will provide but do not store",
+                    "Will provide and okay with storing partial details",
+                    "Will provide and okay with storing full details"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "regulation",
+              "category": "Regulation",
+                "hint": "Information you must provide to comply with government regulations.",
+              "componentType": "checkboxGroup",
+              "children": [
+                {
+                  "id": "identification_document",
+                  "category": "Identification Document",
+                  "componentType": "checkbox"
+                }
+              ]
+            },
+            {
+              "id": "providing_service",
+              "category": "Providing Service",
+              "hint": "Information the service provider collects to provide you with the service.",
+              "componentType": "sliderGroup",
+              "children": [
+                {
+                  "id": "location",
+                  "category": "Location",
+                  "componentType": "slider",
+                  "options": [
+                    "Will not provide",
+                    "Will provide approximate location",
+                    "Will provide precise location but ask every time",
+                    "Will provide precise location"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "personal_information_usage",
+          "category": "Personal Information Usage",
+          "hint": "How the service provider uses your information.",
+          "componentType": "section",
+          "children": [
+            {
+              "id": "providing_service_usage",
+              "category": "Providing Service",
+              "componentType": "checkboxGroup",
+              "children": [
+                { "id": "administering_website", "category": "Administering Website", "componentType": "checkbox", "hint": "Using your information to manage the website." },
+                { "id": "communication", "category": "Communication", "componentType": "checkbox", "hint": "Using your information to communicate with you." }
+              ]
+            },
+            {
+              "id": "trackers",
+              "category": "Trackers",
+              "componentType": "checkboxGroup",
+              "children": [
+                { "id": "third_party_cookies", "category": "3rd Party Cookies", "componentType": "checkbox", "hint": "Cookies from third-party services (e.g. Google Analytics)." },
+                { "id": "cookies", "category": "Cookies", "componentType": "checkbox", "hint": "Cookies from the website to remember your preferences."},
+                { "id": "web_beacons", "category": "Web Beacons", "componentType": "checkbox", "hint": "Invisible images that track your activity on the website." }
+              ]
+            },
+            {
+              "id": "personalization",
+              "category": "Personalization",
+              "componentType": "checkbox",
+              "hint": "Using your information to personalize your experience."
+            },
+            {
+              "id": "advertisement",
+              "category": "Advertisement",
+              "componentType": "checkbox",
+              "hint": "Using your information to show you ads."
+            }
+          ]
+        }
+      ]
+    }
+  }
