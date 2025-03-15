@@ -83,7 +83,7 @@ if submitted:
 
 # devTxt = st.text(json.dumps(pref_tree, indent=2))
 
-txt = st.text_area("Paste legal document", height=1000)
+txt = st.text_area("Paste legal document")
 
 if st.button("Parse"):
 
