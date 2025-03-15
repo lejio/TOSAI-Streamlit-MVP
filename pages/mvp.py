@@ -70,7 +70,6 @@ st.markdown(
     """
 )
 
-# with st.sidebar.form("user_prefs_form"):
 form = st.sidebar.form("user_prefs_form")
 pref_tree = {}
 render_form(form, json_data["privacyAgreement"], pref_tree)
@@ -92,6 +91,18 @@ if st.button("Parse"):
     parsed_data = parser.parse_text(txt)
 
     st.json(parsed_data)
+
+    # Compare parsed data with user preferences
+
+    diff = {}
+    for key, value in parsed_data.items():
+        if key in pref_tree and value != pref_tree[key]:
+            diff[key] = value
+
+    if diff:
+        st.write("The document contains the following points that differ from your preferences:")
+        st.json(diff)
+        
   else:
     st.error("Please paste a legal document to parse.")
 
