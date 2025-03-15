@@ -87,7 +87,7 @@ txt = st.text_area("Paste legal document")
 if st.button("Parse"):
 
   if txt:
-    parser = Parser()
+    parser = Parser(api_key=st.secrets["google_key"])
     parsed_data = parser.parse_text(txt)
 
     st.json(parsed_data)
@@ -102,7 +102,7 @@ if st.button("Parse"):
     if diff:
         st.write("The document contains the following points that differ from your preferences:")
         st.json(diff)
-        
+
   else:
     st.error("Please paste a legal document to parse.")
 

@@ -4,8 +4,6 @@ from openai import OpenAI
 from google import genai
 
 import json
-from dotenv import load_dotenv
-import os
 
 PROMPT = "Extract key information from the privacy agreement. For location and credit card, provide the severity of the data shared on a scale of 1-4."
 
@@ -34,15 +32,14 @@ class PrivacyAgreement(BaseModel):
 
 
 class Parser:
-    def __init__(self, model=Model.GOOGLE, prompt=PROMPT):
+    def __init__(self, api_key, model=Model.GOOGLE, prompt=PROMPT):
         self.model = model
         self.prompt = prompt
 
-        load_dotenv()
         if model == Model.OPENAI:
-            self.client = OpenAI(api_key=os.getenv("openai_key"))
+            self.client = OpenAI(api_key=api_key)
         elif model == Model.GOOGLE:
-            self.client = genai.Client(api_key=os.getenv("google_key"))
+            self.client = genai.Client(api_key=api_key)
 
     def parse_text(self, text):
         if self.model == Model.OPENAI:
@@ -62,7 +59,6 @@ class Parser:
             },
         )
         json_data = json.loads(response.text)
-        print(json_data)
         return json_data
 
     def openai_parse_text(self, text):
@@ -76,5 +72,4 @@ class Parser:
         )
 
         json_data = json.loads(completion.choices[0].message.content)
-        print(json_data)
         return json_data
